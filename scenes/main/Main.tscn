@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://jwsfo1rgtjc5"]
+
+[ext_resource type="Script" uid="uid://bjd0b7aumexx4" path="res://scenes/main/main.gd" id="1_1rhdn"]
+[ext_resource type="PackedScene" uid="uid://dncq80wvtadh2" path="res://scenes/world/Room_Test.tscn" id="1_q24mn"]
+[ext_resource type="PackedScene" uid="uid://b0wsv7oqvod85" path="res://scenes/world/DoubleJumpPickup.tscn" id="2_dc040"]
+[ext_resource type="PackedScene" uid="uid://x38mfda7ln1p" path="res://scenes/actors/player/Player.tscn" id="2_gyg6b"]
+[ext_resource type="PackedScene" uid="uid://c8dx52enlmf" path="res://scenes/actors/enemies/BlockEnemy.tscn" id="3_dc040"]
+[ext_resource type="PackedScene" uid="uid://dq31hhrvg635g" path="res://ui/hud/HUD.tscn" id="6_1rhdn"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1rhdn")
+
+[node name="RoomTest" parent="." instance=ExtResource("1_q24mn")]
+
+[node name="DoubleJumpPickup" parent="RoomTest" instance=ExtResource("2_dc040")]
+position = Vector2(500, -60)
+
+[node name="BlockEnemy" parent="RoomTest" instance=ExtResource("3_dc040")]
+
+[node name="Player" parent="." instance=ExtResource("2_gyg6b")]
+
+[node name="HUD" parent="." instance=ExtResource("6_1rhdn")]

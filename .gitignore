@@ -1,0 +1,15 @@
+# Godot 4
+.godot/
+.import/
+
+# Builds/exports locales (si usás estas carpetas)
+export/
+bin/
+build/
+
+# SO / editor
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0wsv7oqvod85"]
+
+[ext_resource type="Script" uid="uid://bu3l1t70m7dpo" path="res://scenes/world/double_jump_pickup.gd" id="1_gbo48"]
+[ext_resource type="Texture2D" uid="uid://d2mopj77d0l40" path="res://icon.svg" id="1_wn4jh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4fwk"]
+
+[node name="DoubleJumpPickup" type="Area2D"]
+script = ExtResource("1_gbo48")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wn4jh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x4fwk")
