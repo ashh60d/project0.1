@@ -16,7 +16,9 @@ script = ExtResource("1_1rhdn")
 position = Vector2(500, -60)
 
 [node name="BlockEnemy" parent="RoomTest" instance=ExtResource("3_dc040")]
+position = Vector2(-500, -500)
 
 [node name="Player" parent="." instance=ExtResource("2_gyg6b")]
+position = Vector2(0, -250)
 
 [node name="HUD" parent="." instance=ExtResource("6_1rhdn")]
