@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://x38mfda7ln1p"]
+[gd_scene load_steps=11 format=3 uid="uid://x38mfda7ln1p"]
 
 [ext_resource type="Texture2D" uid="uid://bci7x8uqumf7g" path="res://assets/sprites/151.webp" id="1_iugxn"]
-[ext_resource type="Script" uid="uid://c37tflrxlcuc1" path="res://scenes/actors/player/Player.gd" id="1_u84y5"]
+[ext_resource type="Script" uid="uid://dqydkq4amyd08" path="res://scripts/actors/core/Actor.gd" id="1_u84y5"]
+[ext_resource type="Script" uid="uid://cqh1t2aei54iy" path="res://scripts/modules/Movement.gd" id="3_r4dnb"]
+[ext_resource type="Script" uid="uid://0c0jreifxbbg" path="res://scripts/modules/Jump.gd" id="4_nl1po"]
+[ext_resource type="Script" uid="uid://bppik2borylqb" path="res://scripts/modules/Dash.gd" id="5_wbuvb"]
+[ext_resource type="Script" uid="uid://ch6emviko141x" path="res://scripts/modules/Defense.gd" id="6_l53yg"]
+[ext_resource type="Script" uid="uid://ucwpr5b7303p" path="res://scripts/modules/Attack.gd" id="7_t688l"]
+[ext_resource type="Script" uid="uid://dkvnjgkoy1y8q" path="res://scripts/modules/Combat.gd" id="8_712dq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u84y5"]
 radius = 50.01
@@ -10,6 +16,8 @@ radius = 50.01
 size = Vector2(144, 20)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_u84y5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -25,9 +33,26 @@ shape = SubResource("CircleShape2D_u84y5")
 [node name="AttackPivot" type="Node2D" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="AttackPivot"]
-monitoring = false
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackPivot/Hitbox"]
 shape = SubResource("RectangleShape2D_u84y5")
 
-[connection signal="body_entered" from="AttackPivot/Hitbox" to="." method="_on_hitbox_body_entered"]
+[node name="Movement" type="Node" parent="."]
+script = ExtResource("3_r4dnb")
+
+[node name="Jump" type="Node" parent="."]
+script = ExtResource("4_nl1po")
+
+[node name="Dash" type="Node" parent="."]
+script = ExtResource("5_wbuvb")
+
+[node name="Defense" type="Node" parent="."]
+script = ExtResource("6_l53yg")
+
+[node name="Attack" type="Node" parent="."]
+script = ExtResource("7_t688l")
+
+[node name="Combat" type="Node" parent="."]
+script = ExtResource("8_712dq")
