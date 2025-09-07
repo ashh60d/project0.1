@@ -10,6 +10,8 @@ size = Vector2(92, 98.5)
 size = Vector2(122, 116)
 
 [node name="BlockEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_gw6gb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,6 +23,8 @@ position = Vector2(-3, -64)
 texture = ExtResource("1_u7xqj")
 
 [node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource("RectangleShape2D_gw6gb")
